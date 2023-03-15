@@ -9,7 +9,7 @@ let package = Package(
     products: [
         .library(
             name: "Authentication",
-            targets: ["Authentication"]),
+            targets: ["Authentication", "AuthenticationObjc"]),
     ],
     dependencies: [
         .package(name: "DesignSystem", path: "../DesignSystem"),
@@ -24,6 +24,12 @@ let package = Package(
                 "Networking",
                 "Models"
             ]),
+        .target(
+            name: "AuthenticationObjc",
+            dependencies: [],
+            path: "Sources/AuthenticationObjc",
+            publicHeadersPath: "Public"
+        ),
         .testTarget(
             name: "AuthenticationTests",
             dependencies: ["Authentication"]),
