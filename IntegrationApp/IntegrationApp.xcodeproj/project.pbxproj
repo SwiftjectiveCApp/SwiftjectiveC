@@ -46,8 +46,8 @@
 		6AC3648B29C1A88200B26D04 /* IntegrationAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IntegrationAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AC3648F29C1A88200B26D04 /* IntegrationAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntegrationAppUITests.swift; sourceTree = "<group>"; };
 		6AC3649129C1A88200B26D04 /* IntegrationAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntegrationAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		6AC3649F29C1A94900B26D04 /* AccountKit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = AccountKit; path = ../Packages/AccountKit; sourceTree = "<group>"; };
-		6AC364A029C1A95600B26D04 /* DesignSystem */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = DesignSystem; path = ../Packages/DesignSystem; sourceTree = "<group>"; };
+		6AC364A929C1AAC400B26D04 /* AccountKit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = AccountKit; path = ../LocalPackages/AccountKit; sourceTree = "<group>"; };
+		6AC364AA29C1AACE00B26D04 /* DesignSystem */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = DesignSystem; path = ../LocalPackages/DesignSystem; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,7 +80,7 @@
 		6AC3646829C1A88100B26D04 = {
 			isa = PBXGroup;
 			children = (
-				6AC3649E29C1A94900B26D04 /* Packages */,
+				6AC364A829C1AAC400B26D04 /* Packages */,
 				6AC3647329C1A88100B26D04 /* IntegrationApp */,
 				6AC3648429C1A88200B26D04 /* IntegrationAppTests */,
 				6AC3648E29C1A88200B26D04 /* IntegrationAppUITests */,
@@ -135,20 +135,20 @@
 			path = IntegrationAppUITests;
 			sourceTree = "<group>";
 		};
-		6AC3649E29C1A94900B26D04 /* Packages */ = {
-			isa = PBXGroup;
-			children = (
-				6AC3649F29C1A94900B26D04 /* AccountKit */,
-				6AC364A029C1A95600B26D04 /* DesignSystem */,
-			);
-			name = Packages;
-			sourceTree = "<group>";
-		};
 		6AC364A129C1A95F00B26D04 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6AC364A829C1AAC400B26D04 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				6AC364A929C1AAC400B26D04 /* AccountKit */,
+				6AC364AA29C1AACE00B26D04 /* DesignSystem */,
+			);
+			name = Packages;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
