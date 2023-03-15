@@ -1,5 +1,5 @@
-import Networking
 import Foundation
+import Networking
 
 final class AuthenticationViewModel: ObservableObject {
     private let controller: GitHubControlling
@@ -8,8 +8,10 @@ final class AuthenticationViewModel: ObservableObject {
         self.controller = controller
     }
 
-    func loginWithToken() async {
-
+    func loginWithToken(_ token: String) async {
+        do {
+            try await controller.loginWithToken()
+        } catch {}
     }
 
 }

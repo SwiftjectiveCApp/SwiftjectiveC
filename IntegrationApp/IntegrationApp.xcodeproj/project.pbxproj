@@ -7,14 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6A360D1229C1BC32009D4204 /* Authentication in Frameworks */ = {isa = PBXBuildFile; productRef = 6A360D1129C1BC32009D4204 /* Authentication */; };
 		6A360D2229C1BE71009D4204 /* DesignSystem in Resources */ = {isa = PBXBuildFile; fileRef = 6A360D1D29C1BE71009D4204 /* DesignSystem */; };
 		6A360D2329C1BE71009D4204 /* Networking in Resources */ = {isa = PBXBuildFile; fileRef = 6A360D1E29C1BE71009D4204 /* Networking */; };
 		6A360D2429C1BE71009D4204 /* Models in Resources */ = {isa = PBXBuildFile; fileRef = 6A360D1F29C1BE71009D4204 /* Models */; };
 		6A360D2529C1BE71009D4204 /* Authentication in Resources */ = {isa = PBXBuildFile; fileRef = 6A360D2029C1BE71009D4204 /* Authentication */; };
-		6A360D2629C1BE71009D4204 /* AccountKit in Resources */ = {isa = PBXBuildFile; fileRef = 6A360D2129C1BE71009D4204 /* AccountKit */; };
 		6A360D2829C1BEE7009D4204 /* Networking in Frameworks */ = {isa = PBXBuildFile; productRef = 6A360D2729C1BEE7009D4204 /* Networking */; };
 		6A360D2A29C1BEED009D4204 /* Models in Frameworks */ = {isa = PBXBuildFile; productRef = 6A360D2929C1BEED009D4204 /* Models */; };
+		6A360D2C29C1C858009D4204 /* Authentication in Frameworks */ = {isa = PBXBuildFile; productRef = 6A360D2B29C1C858009D4204 /* Authentication */; };
 		6AC3647529C1A88100B26D04 /* IntegrationAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AC3647429C1A88100B26D04 /* IntegrationAppApp.swift */; };
 		6AC3647729C1A88100B26D04 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AC3647629C1A88100B26D04 /* ContentView.swift */; };
 		6AC3647929C1A88200B26D04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6AC3647829C1A88200B26D04 /* Assets.xcassets */; };
@@ -22,7 +21,6 @@
 		6AC3648629C1A88200B26D04 /* IntegrationAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AC3648529C1A88200B26D04 /* IntegrationAppTests.swift */; };
 		6AC3649029C1A88200B26D04 /* IntegrationAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AC3648F29C1A88200B26D04 /* IntegrationAppUITests.swift */; };
 		6AC3649229C1A88200B26D04 /* IntegrationAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AC3649129C1A88200B26D04 /* IntegrationAppUITestsLaunchTests.swift */; };
-		6AC364A329C1A95F00B26D04 /* AccountKit in Frameworks */ = {isa = PBXBuildFile; productRef = 6AC364A229C1A95F00B26D04 /* AccountKit */; };
 		6AC364A529C1A95F00B26D04 /* DesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = 6AC364A429C1A95F00B26D04 /* DesignSystem */; };
 /* End PBXBuildFile section */
 
@@ -48,7 +46,6 @@
 		6A360D1E29C1BE71009D4204 /* Networking */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Networking; sourceTree = "<group>"; };
 		6A360D1F29C1BE71009D4204 /* Models */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Models; sourceTree = "<group>"; };
 		6A360D2029C1BE71009D4204 /* Authentication */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Authentication; sourceTree = "<group>"; };
-		6A360D2129C1BE71009D4204 /* AccountKit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = AccountKit; sourceTree = "<group>"; };
 		6AC3647129C1A88100B26D04 /* IntegrationApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IntegrationApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AC3647429C1A88100B26D04 /* IntegrationAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntegrationAppApp.swift; sourceTree = "<group>"; };
 		6AC3647629C1A88100B26D04 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -67,10 +64,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				6A360D2A29C1BEED009D4204 /* Models in Frameworks */,
-				6AC364A329C1A95F00B26D04 /* AccountKit in Frameworks */,
+				6A360D2C29C1C858009D4204 /* Authentication in Frameworks */,
 				6AC364A529C1A95F00B26D04 /* DesignSystem in Frameworks */,
 				6A360D2829C1BEE7009D4204 /* Networking in Frameworks */,
-				6A360D1229C1BC32009D4204 /* Authentication in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,7 +94,6 @@
 				6A360D1E29C1BE71009D4204 /* Networking */,
 				6A360D1F29C1BE71009D4204 /* Models */,
 				6A360D2029C1BE71009D4204 /* Authentication */,
-				6A360D2129C1BE71009D4204 /* AccountKit */,
 			);
 			name = LocalPackages;
 			path = ../LocalPackages;
@@ -186,11 +181,10 @@
 			);
 			name = IntegrationApp;
 			packageProductDependencies = (
-				6AC364A229C1A95F00B26D04 /* AccountKit */,
 				6AC364A429C1A95F00B26D04 /* DesignSystem */,
-				6A360D1129C1BC32009D4204 /* Authentication */,
 				6A360D2729C1BEE7009D4204 /* Networking */,
 				6A360D2929C1BEED009D4204 /* Models */,
+				6A360D2B29C1C858009D4204 /* Authentication */,
 			);
 			productName = IntegrationApp;
 			productReference = 6AC3647129C1A88100B26D04 /* IntegrationApp.app */;
@@ -283,7 +277,6 @@
 				6A360D2429C1BE71009D4204 /* Models in Resources */,
 				6A360D2229C1BE71009D4204 /* DesignSystem in Resources */,
 				6A360D2529C1BE71009D4204 /* Authentication in Resources */,
-				6A360D2629C1BE71009D4204 /* AccountKit in Resources */,
 				6AC3647C29C1A88200B26D04 /* Preview Assets.xcassets in Resources */,
 				6A360D2329C1BE71009D4204 /* Networking in Resources */,
 				6AC3647929C1A88200B26D04 /* Assets.xcassets in Resources */,
@@ -399,7 +392,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -453,7 +446,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -479,6 +472,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -508,6 +502,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -639,10 +634,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		6A360D1129C1BC32009D4204 /* Authentication */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Authentication;
-		};
 		6A360D2729C1BEE7009D4204 /* Networking */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Networking;
@@ -651,9 +642,9 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = Models;
 		};
-		6AC364A229C1A95F00B26D04 /* AccountKit */ = {
+		6A360D2B29C1C858009D4204 /* Authentication */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = AccountKit;
+			productName = Authentication;
 		};
 		6AC364A429C1A95F00B26D04 /* DesignSystem */ = {
 			isa = XCSwiftPackageProductDependency;
