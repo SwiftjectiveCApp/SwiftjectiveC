@@ -2,9 +2,11 @@ import DesignSystem
 import SwiftUI
 
 public struct AuthenticationView: View {
-    public init() {}
+    public init(delegate: AuthenticationDelegate) {
+        viewModel.delegate = delegate
+    }
 
-    @StateObject private var viewModel: AuthenticationViewModel = .init()
+    @ObservedObject private var viewModel: AuthenticationViewModel = .init()
     @State private var showLoginAlertField = false
     @State private var accessToken = ""
     

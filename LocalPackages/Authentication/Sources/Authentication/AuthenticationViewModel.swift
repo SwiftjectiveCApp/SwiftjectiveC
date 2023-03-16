@@ -1,8 +1,14 @@
 import Foundation
 import Networking
+@_exported import AuthenticationObjc
+
+public protocol AuthenticationDelegate: AnyObject {
+    func finishLogin(token: String, authMethod: AuthMethod, username: String)
+}
 
 final class AuthenticationViewModel: ObservableObject {
     private let controller: GitHubControlling
+    weak var delegate: AuthenticationDelegate?
 
     init(controller: GitHubControlling = GitHubController()) {
         self.controller = controller
@@ -10,8 +16,14 @@ final class AuthenticationViewModel: ObservableObject {
 
     func loginWithToken(_ token: String) async {
         do {
-            try await controller.loginWithToken()
-        } catch {}
+            let user = try await controller.verifyPersonalAccessTokenRequest(token: token)
+            self.delegate?.finishLogin(
+                token: token,
+                authMethod: .PAT,
+                username: user.name ?? ""
+            )
+        } catch {
+            print("Failed to login with token \(error)")
+        }
     }
-
 }

@@ -22,7 +22,8 @@ let package = Package(
             dependencies: [
                 "DesignSystem",
                 "Networking",
-                "Models"
+                "Models",
+                "AuthenticationObjc"
             ]),
         .target(
             name: "AuthenticationObjc",

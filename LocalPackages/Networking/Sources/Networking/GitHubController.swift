@@ -4,7 +4,7 @@ import Foundation
 
 public protocol GitHubControlling {
     /// Login with token.
-    func loginWithToken() async throws -> User
+    func verifyPersonalAccessTokenRequest(token: String) async throws -> User
 
     /// Get the repository information.
     func repo(owner: String, repo: String) async throws -> Repository
@@ -23,8 +23,9 @@ public final class GitHubController: GitHubControlling {
 
     // MARK: - RemoteGitHubRepository
 
-    public func loginWithToken() async throws -> User {
-        try await parseData(from: .loginWithToken)
+
+    public func verifyPersonalAccessTokenRequest(token: String) async throws -> User {
+        try await parseData(from: .user(token: token))
     }
 
     public func repo(owner: String, repo: String) async throws -> Repository {
@@ -40,22 +41,28 @@ public final class GitHubController: GitHubControlling {
 
 extension GitHubController {
     enum API: Request {
-        case loginWithToken
+        case user(token: String)
         case repo(owner: String, repo: String)
 
         // MARK: - Request
 
         var headers: [String : String]? {
-            return [
-                "Accept": "application/vnd.github+json",
-                "Authorization": "Bearer \(UserDefaultManagement.accessToken)"
-            ]
+            switch self {
+            case .repo:
+                return [
+                    "Accept": "application/json",
+                    "Content-Type": "application/json"
+                ]
+            case let .user(token):
+                return ["Authorization": "token \(token)"]
+            }
+
         }
 
         var url: String {
             switch self {
-            case .loginWithToken:
-                return buildURLString(fromPath: "/user")
+            case .user:
+                return "https://api.github.com/user"
             case let .repo(owner, repo):
                 return buildURLString(fromPath: "/repos/\(owner)/\(repo)")
             }

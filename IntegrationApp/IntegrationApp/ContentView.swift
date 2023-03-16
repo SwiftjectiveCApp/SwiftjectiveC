@@ -7,11 +7,12 @@
 
 import SwiftUI
 import DesignSystem
-import Authentication
 
 struct ContentView: View {
     var body: some View {
-        AuthenticationView()
+        VStack {
+            Text("Home Page")
+        }
     }
 }
 
