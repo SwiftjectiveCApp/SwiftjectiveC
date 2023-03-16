@@ -1,6 +1,5 @@
 import Foundation
 import Networking
-@_exported import AuthenticationObjc
 
 public protocol AuthenticationDelegate: AnyObject {
     func finishLogin(token: String, authMethod: AuthMethod, username: String)

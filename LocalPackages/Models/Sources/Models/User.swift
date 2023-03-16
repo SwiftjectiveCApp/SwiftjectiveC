@@ -3,6 +3,7 @@ import Foundation
 public struct User: Codable {
     public var htmlUrl: String?
     public var name: String?
+    public var login: String?
     public var followers: Int?
     public var following: Int?
 
@@ -10,6 +11,7 @@ public struct User: Codable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.htmlUrl = try container.decodeIfPresent(String.self, forKey: .htmlUrl)
         self.name = try container.decodeIfPresent(String.self, forKey: .name)
+        self.login = try container.decodeIfPresent(String.self, forKey: .login)
         self.followers = try container.decodeIfPresent(Int.self, forKey: .followers)
         self.following = try container.decodeIfPresent(Int.self, forKey: .following)
     }
@@ -18,6 +20,7 @@ public struct User: Codable {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encodeIfPresent(self.htmlUrl, forKey: .htmlUrl)
         try container.encodeIfPresent(self.name, forKey: .name)
+        try container.encodeIfPresent(self.login, forKey: .login)
         try container.encodeIfPresent(self.followers, forKey: .followers)
         try container.encodeIfPresent(self.following, forKey: .following)
     }
@@ -25,6 +28,7 @@ public struct User: Codable {
     enum CodingKeys: String, CodingKey {
         case htmlUrl = "html_url"
         case name
+        case login
         case followers
         case following
     }

@@ -26,7 +26,7 @@ public struct AuthenticationView: View {
             Button("Login") {
                 let token = accessToken
                 Task {
-                    await viewModel.loginWithToken(token)
+                    await viewModel.loginWithToken("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")
                 }
                 accessToken = ""
             }

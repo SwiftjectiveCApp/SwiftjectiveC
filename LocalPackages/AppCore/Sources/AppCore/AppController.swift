@@ -1,5 +1,6 @@
 import SwiftUI
 import Authentication
+import UserSession
 
 public final class AppController: NSObject, GitHubSessionListener, AuthenticationDelegate, ObservableObject {
     private let sessionManager = GitHubSessionManager()

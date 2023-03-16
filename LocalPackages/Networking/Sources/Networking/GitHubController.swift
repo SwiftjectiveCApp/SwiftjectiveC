@@ -1,13 +1,14 @@
 import Networkable
 import Models
 import Foundation
+@_exported import UserSession
 
 public protocol GitHubControlling {
     /// Login with token.
     func verifyPersonalAccessTokenRequest(token: String) async throws -> User
 
-    /// Get the repository information.
-    func repo(owner: String, repo: String) async throws -> Repository
+    /// Get repositories information.
+    func repos() async throws -> [Repository]
 }
 
 public final class GitHubController: GitHubControlling {
@@ -23,13 +24,12 @@ public final class GitHubController: GitHubControlling {
 
     // MARK: - RemoteGitHubRepository
 
-
     public func verifyPersonalAccessTokenRequest(token: String) async throws -> User {
         try await parseData(from: .user(token: token))
     }
 
-    public func repo(owner: String, repo: String) async throws -> Repository {
-        try await parseData(from: .repo(owner: owner, repo: repo))
+    public func repos() async throws -> [Repository] {
+        try await parseData(from: .repos)
     }
 
     // MARK: - Helpers
@@ -42,16 +42,19 @@ public final class GitHubController: GitHubControlling {
 extension GitHubController {
     enum API: Request {
         case user(token: String)
-        case repo(owner: String, repo: String)
+        case repos
 
         // MARK: - Request
 
         var headers: [String : String]? {
             switch self {
-            case .repo:
+            case .repos:
+                let sessionManager: GitHubSessionManager = .init()
+                guard let focusedUserSession = sessionManager.focusedUserSession() else { return [:] }
+                let authorizationHeader = focusedUserSession.authorizationHeader()
                 return [
-                    "Accept": "application/json",
-                    "Content-Type": "application/json"
+                    "Authorization": authorizationHeader,
+                    "Accept": "application/vnd.github+json"
                 ]
             case let .user(token):
                 return ["Authorization": "token \(token)"]
@@ -63,18 +66,9 @@ extension GitHubController {
             switch self {
             case .user:
                 return "https://api.github.com/user"
-            case let .repo(owner, repo):
-                return buildURLString(fromPath: "/repos/\(owner)/\(repo)")
+            case .repos:
+                return "https://api.github.com/user/repos?sort=updated"
             }
-        }
-
-        private func buildURLString(fromPath path: String) -> String {
-            if let hostname = UserDefaultManagement.hostname,
-               let hostnameURL = URL(string: hostname),
-               let url = URL(string: "/api/v3\(path)", relativeTo: hostnameURL) {
-                return url.absoluteString
-            }
-            return path
         }
 
         var method: Networkable.Method {

@@ -10,7 +10,7 @@ let package = Package(
         // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
             name: "Networking",
-            targets: ["Networking"]),
+            targets: ["Networking", "UserSession"]),
     ],
     dependencies: [
          .package(url: "https://github.com/tphduy/Networkable", from: "2.0.0"),
@@ -23,8 +23,15 @@ let package = Package(
             name: "Networking",
             dependencies: [
                 "Networkable",
-                "Models"
+                "Models",
+                "UserSession"
             ]),
+        .target(
+            name: "UserSession",
+            dependencies: [],
+            path: "Sources/UserSession",
+            publicHeadersPath: "Public"
+        ),
         .testTarget(
             name: "NetworkingTests",
             dependencies: ["Networking"]),

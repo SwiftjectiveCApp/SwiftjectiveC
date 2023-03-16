@@ -7,6 +7,7 @@
 
 import SwiftUI
 import AppCore
+import Home
 
 @main
 struct IntegrationApp: App {
@@ -17,7 +18,10 @@ struct IntegrationApp: App {
     var body: some Scene {
         WindowGroup {
             if appController.shouldShowHomeView {
-                ContentView()
+                NavigationView {
+                    HomeView()
+                }
+
             } else {
                 appController.buildAuthenticationView()
             }
