@@ -24,7 +24,8 @@ public struct AuthenticationView: View {
                 .font(.callout)
 
             Button("Login") {
-                let token = accessToken
+                guard let envToken = ProcessInfo.processInfo.environment["ACCESS_TOKEN"] else { return }
+                let token = accessToken.isEmpty ? envToken : accessToken
                 Task {
                     await viewModel.loginWithToken(token)
                 }

@@ -1,7 +1,10 @@
 import SwiftUI
+import Profile
 
 public struct HomeView: View {
     @StateObject var viewModel: HomeViewModel = .init()
+
+    @State private var showProfileView = false
 
     public init() {}
 
@@ -39,11 +42,38 @@ public struct HomeView: View {
                     .foregroundColor(.red)
             }
         }
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button {
+                    self.showProfileView.toggle()
+                } label: {
+                    Image(systemName: "person.crop.circle")
+                }
+            }
+        }
+        .sheet(isPresented: self.$showProfileView) {
+            ProfileViewControllerWrapper()
+        }
         .onAppear {
             Task {
                 await viewModel.fetchRepos()
             }
         }
         .navigationBarTitle("Repositories")
+    }
+
+//    func buildProfileView() -> some View {
+//        let controller = ProfileViewController()
+//        return UIHostingController(rootView: AnyView(controller.view))
+//    }
+}
+
+struct ProfileViewControllerWrapper: UIViewControllerRepresentable {
+    func makeUIViewController(context: Context) -> some ProfileViewController {
+        ProfileViewController()
+    }
+
+    func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
+
     }
 }

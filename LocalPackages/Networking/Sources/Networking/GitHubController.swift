@@ -9,9 +9,13 @@ public protocol GitHubControlling {
 
     /// Get repositories information.
     func repos() async throws -> [Repository]
+
+    /// Get the user information.
+    func user(completion: @escaping (User?, Error?) -> Void)
 }
 
-public final class GitHubController: GitHubControlling {
+@objc
+public final class GitHubController: NSObject, GitHubControlling {
     private let session: NetworkableSession
 
     // MARK: - Init
@@ -21,15 +25,36 @@ public final class GitHubController: GitHubControlling {
     ) {
         self.session = session
     }
+    
+    // MARK: - Convenience Init for Objective-C
+
+    @objc public convenience override init() {
+        self.init()
+    }
 
     // MARK: - RemoteGitHubRepository
 
     public func verifyPersonalAccessTokenRequest(token: String) async throws -> User {
-        try await parseData(from: .user(token: token))
+        try await parseData(from: .userFromToken(token))
     }
 
     public func repos() async throws -> [Repository] {
         try await parseData(from: .repos)
+    }
+
+    @objc public func user(completion: @escaping (User?, Error?) -> Void) {
+        session.dataTask(
+            for: API.user,
+            resultQueue: nil,
+            decoder: JSONDecoder()
+        ) { (result: Result<User, Error>) in
+            switch result {
+            case .success(let user):
+                completion(user, nil)
+            case .failure(let error):
+                completion(nil, error)
+            }
+        }
     }
 
     // MARK: - Helpers
@@ -41,14 +66,15 @@ public final class GitHubController: GitHubControlling {
 
 extension GitHubController {
     enum API: Request {
-        case user(token: String)
+        case userFromToken(_ token: String)
         case repos
+        case user
 
         // MARK: - Request
 
         var headers: [String : String]? {
             switch self {
-            case .repos:
+            case .repos, .user:
                 let sessionManager: GitHubSessionManager = .init()
                 guard let focusedUserSession = sessionManager.focusedUserSession() else { return [:] }
                 let authorizationHeader = focusedUserSession.authorizationHeader()
@@ -56,7 +82,7 @@ extension GitHubController {
                     "Authorization": authorizationHeader,
                     "Accept": "application/vnd.github+json"
                 ]
-            case let .user(token):
+            case let .userFromToken(token):
                 return ["Authorization": "token \(token)"]
             }
 
@@ -64,7 +90,7 @@ extension GitHubController {
 
         var url: String {
             switch self {
-            case .user:
+            case .user, .userFromToken:
                 return "https://api.github.com/user"
             case .repos:
                 return "https://api.github.com/user/repos?sort=updated"
