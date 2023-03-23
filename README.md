@@ -10,8 +10,9 @@ An Example Modular Architecture that supports:
   - [x] Swift
   - [ ] Objc
   - [x] Both Swift and Objc
+  - [ ] Hosted at GitHub and AWS
 - [ ] Resource package to manage resource
 - Simulate dev experience when using XCFramework
   - [ ] Use CI to build XCFramework
-  - [ ] Remote caching XCFramework
+  - [ ] Remote caching XCFramework (aws)
   - [ ] Create collection that contains local packages
