@@ -25,12 +25,6 @@ public final class GitHubController: NSObject, GitHubControlling {
     ) {
         self.session = session
     }
-    
-    // MARK: - Convenience Init for Objective-C
-
-    @objc public convenience override init() {
-        self.init()
-    }
 
     // MARK: - RemoteGitHubRepository
 

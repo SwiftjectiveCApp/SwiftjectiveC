@@ -1,6 +1,7 @@
 #import "ProfileViewController.h"
 @import Models;
 @import Networking;
+@import Networkable;
 
 @interface ProfileViewController ()
 
@@ -17,7 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.controller = [GitHubController init];
+//    self.controller = [[GitHubController alloc] init];
 
     self.usernameLabel = [[UILabel alloc] init];
     self.usernameLabel.textAlignment = NSTextAlignmentLeft;
