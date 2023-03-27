@@ -18,7 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-//    self.controller = [[GitHubController alloc] init];
+    self.controller = [[GitHubController alloc] init];
 
     self.usernameLabel = [[UILabel alloc] init];
     self.usernameLabel.textAlignment = NSTextAlignmentLeft;
@@ -56,13 +56,15 @@
 
 - (void) fetchUser {
     [self.controller userWithCompletion:^(User * _Nullable user, NSError * _Nullable error) {
-        if (error) {
-            NSLog(@"Error: %@", error.localizedDescription);
-        } else if (user) {
-            self.usernameLabel.text = user.name;
-            self.followingLabel.text = [user.following stringValue];
-            self.followersLabel.text = [user.followers stringValue];
-        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (error) {
+                NSLog(@"Error: %@", error.localizedDescription);
+            } else if (user) {
+                self.usernameLabel.text = user.name;
+                self.followingLabel.text = [user.following stringValue];
+                self.followersLabel.text = [user.followers stringValue];
+            }
+        });
     }];
 }
 

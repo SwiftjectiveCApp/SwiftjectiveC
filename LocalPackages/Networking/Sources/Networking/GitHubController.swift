@@ -26,6 +26,10 @@ public final class GitHubController: NSObject, GitHubControlling {
         self.session = session
     }
 
+    public override init() {
+        self.session = NetworkSession.github
+    }
+
     // MARK: - RemoteGitHubRepository
 
     public func verifyPersonalAccessTokenRequest(token: String) async throws -> User {
