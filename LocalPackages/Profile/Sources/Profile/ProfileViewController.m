@@ -1,7 +1,6 @@
 #import "ProfileViewController.h"
 @import Models;
 @import Networking;
-@import Networkable;
 
 @interface ProfileViewController ()
 
