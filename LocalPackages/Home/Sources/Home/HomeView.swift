@@ -61,16 +61,13 @@ public struct HomeView: View {
         }
         .navigationBarTitle("Repositories")
     }
-
-//    func buildProfileView() -> some View {
-//        let controller = ProfileViewController()
-//        return UIHostingController(rootView: AnyView(controller.view))
-//    }
 }
 
 struct ProfileViewControllerWrapper: UIViewControllerRepresentable {
-    func makeUIViewController(context: Context) -> some ProfileViewController {
-        ProfileViewController()
+    func makeUIViewController(context: Context) -> some UINavigationController {
+        let profileController = ProfileViewController()
+        let controller = UINavigationController(rootViewController: profileController)
+        return controller
     }
 
     func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
