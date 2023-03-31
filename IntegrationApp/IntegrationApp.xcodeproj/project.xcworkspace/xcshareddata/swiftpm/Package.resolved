@@ -1,6 +1,51 @@
 {
   "pins" : [
     {
+      "identity" : "appcore",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SwiftjectiveCApp/AppCore",
+      "state" : {
+        "revision" : "91f7a7af40b32b6737583c1e1f32172f50669c8c",
+        "version" : "1.0.1"
+      }
+    },
+    {
+      "identity" : "authentication",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SwiftjectiveCApp/Authentication",
+      "state" : {
+        "revision" : "557ce6e319f9d1290c53fa839e634f6177345539",
+        "version" : "1.0.1"
+      }
+    },
+    {
+      "identity" : "designsystem",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SwiftjectiveCApp/DesignSystem",
+      "state" : {
+        "revision" : "3fd38b9fddf42ebc60ad01e9fc34bcbdf9eae845",
+        "version" : "1.0.1"
+      }
+    },
+    {
+      "identity" : "home",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SwiftjectiveCApp/Home",
+      "state" : {
+        "revision" : "18ebd0c59c2ce16fc6935debd70be632bf3ebd6d",
+        "version" : "1.0.1"
+      }
+    },
+    {
+      "identity" : "models",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SwiftjectiveCApp/Models",
+      "state" : {
+        "revision" : "2edbcdf65e6f680373940c3fadee89abc755cd60",
+        "version" : "1.0.1"
+      }
+    },
+    {
       "identity" : "networkable",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/tphduy/Networkable",
@@ -10,12 +55,30 @@
       }
     },
     {
+      "identity" : "networking",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SwiftjectiveCApp/Networking",
+      "state" : {
+        "revision" : "41a5bb7599e071fd73222828858b4eb52eed99a9",
+        "version" : "1.0.1"
+      }
+    },
+    {
       "identity" : "orbit-swiftui",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/kiwicom/orbit-swiftui.git",
       "state" : {
-        "revision" : "16207e245455c9a6eeb3c0b6659c6c0e07c6623d",
-        "version" : "0.9.4"
+        "revision" : "275d68db4e30e035234d495e5cc17e64b23bae67",
+        "version" : "0.9.6"
+      }
+    },
+    {
+      "identity" : "profile",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SwiftjectiveCApp/Profile",
+      "state" : {
+        "revision" : "a91a9deebc8ad05bd8770e3c2c363f2e7edaa6ec",
+        "version" : "1.0.1"
       }
     }
   ],
